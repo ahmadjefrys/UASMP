@@ -57,6 +57,7 @@ class ApiService {
           id: '1',
           username: payload.email.split('@')[0],
           email: payload.email,
+          role: payload.email.toLowerCase().includes('admin') ? 'admin' as const : 'user' as const,
           createdAt: new Date().toISOString(),
         };
         
@@ -87,6 +88,7 @@ class ApiService {
           id: String(Object.keys(mockUsers).length + 1),
           username: payload.username,
           email: payload.email,
+          role: payload.email.toLowerCase().includes('admin') ? 'admin' as const : 'user' as const,
           createdAt: new Date().toISOString(),
         };
         
